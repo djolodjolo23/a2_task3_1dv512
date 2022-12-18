@@ -1,6 +1,6 @@
 import java.util.concurrent.Semaphore;
 
-public class SenderB implements Runnable{
+public class SenderB extends SuperSender implements Runnable{
 
   private final Semaphore semaphore;
 
@@ -13,10 +13,12 @@ public class SenderB implements Runnable{
 
   @Override
   public void run() {
-
-  }
-
-  public char send(){
-    return 'B';
+    synchronized (semaphore) {
+      try {
+        super.run(semaphore, messageQueue, 'B');
+      } catch (InterruptedException e) {
+        throw new RuntimeException(e);
+      }
+    }
   }
 }
