@@ -1,3 +1,4 @@
+import java.util.concurrent.Semaphore;
 
 public class MessageQueue implements IMessageQueue{
 
@@ -20,35 +21,38 @@ public class MessageQueue implements IMessageQueue{
 
   @Override
   public char Recv() {
-    return 0;
+    return messages[messages.length -1];
   }
 
-  public char[] addMsgToQueue(char msg) {
-    while (checkIfQueueIsFull()) {
+  public void addMsgToQueue(char msg) {
+    if (messages.length + 1 == maxlength) {
       full = true;
-      checkIfQueueIsFull();
     }
-    full = false;
     char[]moreMsg = new char[messages.length + 1];
-
     //copy the contents of old array
     System.arraycopy(messages, 0, moreMsg, 0, messages.length);
     for (int i = 1; i < moreMsg.length; i ++) {
       moreMsg[moreMsg.length - i] = moreMsg[moreMsg.length - (i+1)];
     }
     moreMsg[0] = msg;
-    return moreMsg;
+    messages = moreMsg;
   }
 
-  public char[] removeMsgFromQueue() {
+
+
+  public void removeMsgFromQueue() {
     char[]moreMsg = new char[messages.length - 1];
-
+    int index = messages.length - 1;
     //copy the contents of old array
-    System.arraycopy(messages, 0, moreMsg, 0, messages.length);
-    return moreMsg;
+    System.arraycopy(messages, 0, moreMsg, 0, index);
+    System.arraycopy(messages, index + 1, moreMsg, index, messages.length - index - 1);
+    messages = moreMsg;
   }
 
-  public boolean checkIfQueueIsFull () {
-    return messages.length == maxlength;
+  public void checkIfQueueIsFull (Semaphore semaphore) throws InterruptedException {
+    if (full) {
+      semaphore.wait();
+      checkIfQueueIsFull(semaphore);
+    }
   }
 }
