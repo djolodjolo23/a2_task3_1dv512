@@ -1,6 +1,10 @@
 import java.util.concurrent.Semaphore;
 
-public class SuperSender {
+/**
+ * The super sender class holding a run method.
+ * Inherited by all senders.
+ */
+public abstract class SuperSender {
 
   public void run(Semaphore semaphore, MessageQueue messageQueue, char sender) throws InterruptedException {
     while (true) {
@@ -25,6 +29,13 @@ public class SuperSender {
     }
   }
 
+  /**
+   * Sends a message depending on the sender.
+   *
+   * @param sender is the sender object from the Sender class.
+   *
+   * @return is the char value depending on the object.
+   */
   public char send(char sender) {
     switch (sender) {
       case 'A' -> {

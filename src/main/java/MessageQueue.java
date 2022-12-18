@@ -1,5 +1,10 @@
 import java.util.concurrent.Semaphore;
 
+/**
+ * The message queue class.
+ * Responsible for receiving messages from sender Threads to the queue.
+ * Responsible for sending the messages from the queue to the receiver.
+ */
 public class MessageQueue implements IMessageQueue{
 
   char[] messages = new char[] {};
@@ -8,7 +13,7 @@ public class MessageQueue implements IMessageQueue{
 
   boolean full;
 
-  private Receiver receiver;
+  private final Receiver receiver;
 
 
   public MessageQueue(Receiver receiver){
@@ -34,6 +39,13 @@ public class MessageQueue implements IMessageQueue{
     return 0;
   }
 
+  /**
+   * Adds a new message to the queue.
+   * If queue is full, tells the sender to wait with semaphore.wait();
+   *
+   * @param msg the message to be sent.
+   * @param semaphore is the shared semaphore.
+   */
   public void addMsgToQueue(char msg, Semaphore semaphore) throws InterruptedException {
     checkIfQueueIsFull(semaphore);
     if (messages.length + 1 == maxlength) {
@@ -52,7 +64,11 @@ public class MessageQueue implements IMessageQueue{
 
 
 
-  public void removeMsgFromQueue() {
+  /**
+   * removes a first message arrived from the queue.
+   * Also calls send() so that message is sent before being removed.
+   */
+  private void removeMsgFromQueue() {
     if (messages.length == maxlength) {
       send(messages[messages.length - 1]);
       char[] lessMsg = new char[messages.length - 1];
@@ -64,13 +80,25 @@ public class MessageQueue implements IMessageQueue{
     }
   }
 
-  public void checkIfQueueIsFull (Semaphore semaphore) throws InterruptedException {
+  /**
+   * Recursive method to put a thread in a waiting state if the queue is full.
+   *
+   * @param semaphore is the shared semaphore.
+   */
+  private void checkIfQueueIsFull (Semaphore semaphore) throws InterruptedException {
     if (full) {
       semaphore.wait();
       checkIfQueueIsFull(semaphore);
     }
   }
 
+  /**
+   * A method added for checking if a sender already sent a message in a previous turn.
+   * Added to create a better semaphore sharing between the threads.
+   *
+   * @param msg is the message sent.
+   * @param semaphore is the shared semaphore.
+   */
   public void checkIfIAlreadySentAMessage(char msg, Semaphore semaphore) throws InterruptedException {
     while (messages.length != 0 && messages[messages.length - 1] == msg) {
       semaphore.wait();

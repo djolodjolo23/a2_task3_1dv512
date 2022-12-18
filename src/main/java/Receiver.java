@@ -1,12 +1,9 @@
+/**
+ * The receiver class.
+ */
 public class Receiver implements Runnable {
+  public String theMessage = "";
 
-
-
-  public String theMessage= "";
-
-  public Receiver() {
-
-  }
 
   @Override
   public void run() {

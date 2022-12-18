@@ -3,9 +3,9 @@ import java.util.concurrent.Semaphore;
 public class Main {
 
 
-  public static void main(String[] args) throws InterruptedException {
+  public static void main(String[] args) {
 
-    Semaphore semaphore = new Semaphore(1);
+    Semaphore semaphore = new Semaphore(1, true);
     var receiver = new Receiver();
     MessageQueue messageQueue = new MessageQueue(receiver);
 

@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf76562-838c-42c4-8553-8a61c539967f" name="Changes" comment="Adding and removing message from the queue works fine.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/SuperSender.java" afterDir="false" />
+    <list default="true" id="fcf76562-838c-42c4-8553-8a61c539967f" name="Changes" comment="Queue working fine, output is printed out.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MessageQueue.java" afterDir="false" />
@@ -66,7 +65,7 @@
       <updated>1671117295318</updated>
       <workItem from="1671117296958" duration="1901000" />
       <workItem from="1671183166426" duration="8381000" />
-      <workItem from="1671359934922" duration="7800000" />
+      <workItem from="1671359934922" duration="9888000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1671122266356</created>
@@ -89,7 +88,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671363870750</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Queue working fine, output is printed out.">
+      <created>1671369278815</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1671369278815</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,14 +116,15 @@
     <MESSAGE value="Initial commit." />
     <MESSAGE value="started the work on the task 3, still a lot to be done." />
     <MESSAGE value="Adding and removing message from the queue works fine." />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding and removing message from the queue works fine." />
+    <MESSAGE value="Queue working fine, output is printed out." />
+    <option name="LAST_COMMIT_MESSAGE" value="Queue working fine, output is printed out." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Receiver.java</url>
-          <line>13</line>
+          <line>10</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
