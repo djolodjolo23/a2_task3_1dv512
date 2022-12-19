@@ -91,17 +91,4 @@ public class MessageQueue implements IMessageQueue{
       checkIfQueueIsFull(semaphore);
     }
   }
-
-  /**
-   * A method added for checking if a sender already sent a message in a previous turn.
-   * Added to create a better semaphore sharing between the threads.
-   *
-   * @param msg is the message sent.
-   * @param semaphore is the shared semaphore.
-   */
-  public void checkIfIAlreadySentAMessage(char msg, Semaphore semaphore) throws InterruptedException {
-    while (messages.length != 0 && messages[messages.length - 1] == msg) {
-      semaphore.wait();
-    }
-  }
 }

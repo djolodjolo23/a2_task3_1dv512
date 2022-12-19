@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf76562-838c-42c4-8553-8a61c539967f" name="Changes" comment="Queue working fine, output is printed out.">
+    <list default="true" id="fcf76562-838c-42c4-8553-8a61c539967f" name="Changes" comment="Added some javadoc comments.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AppendedString.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MessageQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Receiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SenderA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SenderA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SenderB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SenderB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SenderC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SenderC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SuperSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SuperSender.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,18 +41,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/ahmad/a2_task3",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,7 +64,10 @@
       <updated>1671117295318</updated>
       <workItem from="1671117296958" duration="1901000" />
       <workItem from="1671183166426" duration="8381000" />
-      <workItem from="1671359934922" duration="9888000" />
+      <workItem from="1671359934922" duration="10806000" />
+      <workItem from="1671375597455" duration="51000" />
+      <workItem from="1671443580998" duration="223000" />
+      <workItem from="1671443812692" duration="847000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1671122266356</created>
@@ -95,7 +97,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671369278815</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added some javadoc comments.">
+      <created>1671371713499</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1671371713499</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,7 +126,8 @@
     <MESSAGE value="started the work on the task 3, still a lot to be done." />
     <MESSAGE value="Adding and removing message from the queue works fine." />
     <MESSAGE value="Queue working fine, output is printed out." />
-    <option name="LAST_COMMIT_MESSAGE" value="Queue working fine, output is printed out." />
+    <MESSAGE value="Added some javadoc comments." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added some javadoc comments." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -128,9 +138,9 @@
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/SuperSender.java</url>
-          <line>6</line>
-          <option name="timeStamp" value="13" />
+          <url>file://$PROJECT_DIR$/src/main/java/MessageQueue.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
