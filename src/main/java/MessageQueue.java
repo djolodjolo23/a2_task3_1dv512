@@ -33,10 +33,7 @@ public class MessageQueue implements IMessageQueue{
 
   @Override
   public char Recv() {
-    if (messages.length == maxlength) {
-      return messages[messages.length -1];
-    }
-    return 0;
+    return messages[messages.length -1];
   }
 
   /**
