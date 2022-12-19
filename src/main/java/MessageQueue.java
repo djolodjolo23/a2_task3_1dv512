@@ -5,7 +5,7 @@ import java.util.concurrent.Semaphore;
  * Responsible for receiving messages from sender Threads to the queue.
  * Responsible for sending the messages from the queue to the receiver.
  */
-public class MessageQueue implements IMessageQueue{
+public class MessageQueue implements IMessageQueue, Runnable{
 
   char[] messages = new char[] {};
 
@@ -15,25 +15,57 @@ public class MessageQueue implements IMessageQueue{
 
   private final Receiver receiver;
 
+  private final Semaphore semaphore1;
 
-  public MessageQueue(Receiver receiver){
+  private final Semaphore semaphore2;
+
+
+  public MessageQueue(Receiver receiver, Semaphore semaphore1, Semaphore semaphore2) {
     this.receiver = receiver;
+    this.semaphore1 = semaphore1;
+    this.semaphore2 = semaphore2;
+    this.full = false;
   }
 
   @Override
-  public boolean send(char msg) {
-    if (Recv() == 0) {
-      return false;
-    } else {
-      msg = Recv();
-      receiver.addToMessage(msg);
-      return true;
-    }
+  public void run() {
+    while (true) {
+        synchronized (semaphore2) {
+          try {
+            semaphore2.acquire();
+          } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+          }
+          if (messages.length != 0) {
+            send(messages[messages.length - 1]);
+            semaphore2.release();
+            try {
+              removeMsgFromQueue();
+            } catch (InterruptedException e) {
+              throw new RuntimeException(e);
+            }
+            semaphore2.notify();
+          } else {
+            semaphore2.release();
+          }
+        }
+      }
+  }
+
+
+  @Override
+  public void send(char msg) {
+    msg = Recv();
+    receiver.addToMessage(msg);
   }
 
   @Override
   public char Recv() {
     return messages[messages.length -1];
+  }
+
+  public char[] getMessages() {
+    return messages;
   }
 
   /**
@@ -56,7 +88,6 @@ public class MessageQueue implements IMessageQueue{
     }
     moreMsg[0] = msg;
     messages = moreMsg;
-    removeMsgFromQueue();
   }
 
 
@@ -65,16 +96,15 @@ public class MessageQueue implements IMessageQueue{
    * removes a first message arrived from the queue.
    * Also calls send() so that message is sent before being removed.
    */
-  private void removeMsgFromQueue() {
-    if (messages.length == maxlength) {
-      send(messages[messages.length - 1]);
+  private void removeMsgFromQueue() throws InterruptedException {
+    //if (messages.length == maxlength) {
       char[] lessMsg = new char[messages.length - 1];
       int index = messages.length - 1;
       System.arraycopy(messages, 0, lessMsg, 0, index);
       System.arraycopy(messages, index + 1, lessMsg, index, messages.length - index - 1);
       messages = lessMsg;
       full = false;
-    }
+    //}
   }
 
   /**

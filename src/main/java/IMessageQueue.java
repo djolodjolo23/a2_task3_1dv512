@@ -1,8 +1,8 @@
 public interface IMessageQueue {
 
-  boolean send(char msg);
+  void send(char msg) throws InterruptedException;
 
-  char Recv();
+  char Recv() throws InterruptedException;
 
 
 

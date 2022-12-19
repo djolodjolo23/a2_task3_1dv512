@@ -6,25 +6,26 @@ import java.util.concurrent.Semaphore;
  */
 public abstract class SuperSender {
 
-  public void run(Semaphore semaphore, MessageQueue messageQueue, char sender) throws InterruptedException {
+
+  public void run(Semaphore semaphore1, Semaphore semaphore2, MessageQueue messageQueue, char sender) throws InterruptedException {
     while (true) {
       // This method is not super mandatory, similar effect can be accomplished with
       // semaphore.wait(Timeout millisecond).
-      checkIfIAlreadySentAMessage(sender, semaphore, messageQueue);
+      checkIfIAlreadySentAMessage(sender, semaphore1, messageQueue);
       try {
-        semaphore.acquire();
+        semaphore1.acquire();
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }
       try {
-        messageQueue.addMsgToQueue(send(sender), semaphore);
+        messageQueue.addMsgToQueue(send(sender), semaphore1);
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }
-      semaphore.release();
-      semaphore.notifyAll();
+      semaphore1.release();
+      semaphore1.notifyAll();
       try {
-        semaphore.wait();
+        semaphore1.wait();
         //semaphore.wait(500);
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
