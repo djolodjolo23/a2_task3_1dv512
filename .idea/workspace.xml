@@ -5,7 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fcf76562-838c-42c4-8553-8a61c539967f" name="Changes" comment="small change inside the Message Queue.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MessageQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Receiver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SuperSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SuperSender.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,6 +30,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -143,17 +146,22 @@
     <MESSAGE value="Added some javadoc comments." />
     <MESSAGE value="small updates." />
     <MESSAGE value="small change inside the Message Queue." />
-    <option name="LAST_COMMIT_MESSAGE" value="small change inside the Message Queue." />
+    <MESSAGE value="Updates inside all the classes, application is not functional. A lot of changes have been made after the tutoring session." />
+    <MESSAGE value="Updates inside all the classes, application is not functional. A lot of changes have been made after the today's tutoring session." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updates inside all the classes, application is not functional. A lot of changes have been made after the today's tutoring session." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Receiver.java</url>
-          <line>10</line>
-          <option name="timeStamp" value="12" />
+          <line>24</line>
+          <option name="timeStamp" value="68" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/a2_task3_1dv512$Main.ic" NAME="Main Coverage Results" MODIFIED="1671486601339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
