@@ -8,6 +8,8 @@ public abstract class SuperSender {
 
   public void run(Semaphore semaphore, MessageQueue messageQueue, char sender) throws InterruptedException {
     while (true) {
+      // This method is not super mandatory, similar effect can be accomplished with
+      // semaphore.wait(Timeout millisecond).
       checkIfIAlreadySentAMessage(sender, semaphore, messageQueue);
       try {
         semaphore.acquire();
@@ -23,6 +25,7 @@ public abstract class SuperSender {
       semaphore.notifyAll();
       try {
         semaphore.wait();
+        //semaphore.wait(500);
       } catch (InterruptedException e) {
         throw new RuntimeException(e);
       }
