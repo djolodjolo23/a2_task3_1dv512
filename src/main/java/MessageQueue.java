@@ -56,13 +56,11 @@ public class MessageQueue implements IMessageQueue, Runnable{
   }
 
   @Override
-  public boolean send(char msg) {
+  public void send(char msg) {
     if (Recv() == 0) {
-      return false;
     } else {
       msg = Recv();
       receiver.addToMessage(msg);
-      return true;
     }
   }
 
