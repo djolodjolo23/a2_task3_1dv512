@@ -8,9 +8,6 @@ public abstract class SuperSender {
 
   public void run(Semaphore semaphore, MessageQueue messageQueue, char sender) throws InterruptedException {
     while (true) {
-      // This method is not super mandatory, similar effect can be accomplished with
-      // semaphore.wait(Timeout millisecond).
-      //checkIfIAlreadySentAMessage(sender, semaphore, messageQueue);
       semaphore.acquire();
       if (messageQueue.getArrayCounter().get() < 5) {
         try {
@@ -22,7 +19,6 @@ public abstract class SuperSender {
         semaphore.notifyAll();
         try {
           semaphore.wait();
-          //semaphore.wait(500);
         } catch (InterruptedException e) {
           throw new RuntimeException(e);
         }
@@ -55,17 +51,4 @@ public abstract class SuperSender {
     return 0;
   }
 
-  /**
-   * A method added for checking if a sender already sent a message in a previous turn.
-   * Added to create a better semaphore sharing between the threads.
-   *
-   * @param msg is the message sent.
-   * @param semaphore is the shared semaphore.
-   */
-  public void checkIfIAlreadySentAMessage(char msg, Semaphore semaphore, MessageQueue messageQueue) throws InterruptedException {
-    while (messageQueue.messages.length != 0 && messageQueue.messages[messageQueue.messages.length - 1] == msg) {
-      semaphore.wait(1000);
-      checkIfIAlreadySentAMessage(msg, semaphore, messageQueue);
-    }
-  }
 }

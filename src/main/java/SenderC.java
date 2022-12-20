@@ -18,7 +18,6 @@ public class SenderC extends SuperSender implements Runnable{
 
   @Override
   public void run() {
-
       synchronized (semaphore) {
         try {
           super.run(semaphore, messageQueue, whoAmI);

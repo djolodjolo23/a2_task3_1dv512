@@ -8,6 +8,8 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MessageQueue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Receiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SenderB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SenderB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SenderC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SenderC.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/SuperSender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SuperSender.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,6 +73,7 @@
       <workItem from="1671445737814" duration="96000" />
       <workItem from="1671454048955" duration="120000" />
       <workItem from="1671455978009" duration="391000" />
+      <workItem from="1671553240668" duration="788000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1671122266356</created>
@@ -149,17 +152,6 @@
     <MESSAGE value="Updates inside all the classes, application is not functional. A lot of changes have been made after the tutoring session." />
     <MESSAGE value="Updates inside all the classes, application is not functional. A lot of changes have been made after the today's tutoring session." />
     <option name="LAST_COMMIT_MESSAGE" value="Updates inside all the classes, application is not functional. A lot of changes have been made after the today's tutoring session." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Receiver.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="68" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/a2_task3_1dv512$Main.ic" NAME="Main Coverage Results" MODIFIED="1671486601339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

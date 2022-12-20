@@ -18,6 +18,7 @@ public class Receiver implements Runnable {
     synchronized (semaphore) {
       while (true) {
         try {
+          // waits until notified that the message is sent from the message queue.
           semaphore.wait();
         } catch (InterruptedException e) {
           throw new RuntimeException(e);

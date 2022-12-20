@@ -10,13 +10,7 @@ public class MessageQueue implements IMessageQueue, Runnable{
 
   char[] messages = new char[] {};
 
-  int maxlength = 5;
-
   AtomicInteger arrayCounter = new AtomicInteger(0);
-
-
-
-  boolean full;
 
   private final Receiver receiver;
 
@@ -37,9 +31,11 @@ public class MessageQueue implements IMessageQueue, Runnable{
     synchronized (semaphore) {
       while (true) {
         semaphore.acquireUninterruptibly();
+        // in case the array is empty, the message queue waits for the first message to arrive.
         if (arrayCounter.get() != 0) {
           send(messages[messages.length - 1]);
           semaphore.release();
+          // the receiver gets notified and prints ONLY if the message is sent.
           semaphore.notify();
           removeMsgFromQueue();
         } else {
@@ -57,11 +53,8 @@ public class MessageQueue implements IMessageQueue, Runnable{
 
   @Override
   public void send(char msg) {
-    if (Recv() == 0) {
-    } else {
-      msg = Recv();
-      receiver.addToMessage(msg);
-    }
+    msg = Recv();
+    receiver.addToMessage(msg);
   }
 
   @Override
@@ -77,9 +70,7 @@ public class MessageQueue implements IMessageQueue, Runnable{
    * @param semaphore is the shared semaphore.
    */
   public void addMsgToQueue(char msg, Semaphore semaphore) throws InterruptedException {
-    //checkIfQueueIsFull(semaphore);
     char[]moreMsg = new char[messages.length + 1];
-    //copy the contents of old array
     System.arraycopy(messages, 0, moreMsg, 0, messages.length);
     for (int i = 1; i < moreMsg.length; i ++) {
       moreMsg[moreMsg.length - i] = moreMsg[moreMsg.length - (i+1)];
@@ -96,26 +87,11 @@ public class MessageQueue implements IMessageQueue, Runnable{
    * Also calls send() so that message is sent before being removed.
    */
   private void removeMsgFromQueue() {
-    //if (messages.length == maxlength) {
-      char[] lessMsg = new char[messages.length - 1];
-      int index = messages.length - 1;
-      System.arraycopy(messages, 0, lessMsg, 0, index);
-      System.arraycopy(messages, index + 1, lessMsg, index, messages.length - index - 1);
-      messages = lessMsg;
-      full = false;
-      arrayCounter.decrementAndGet();
-    //}
+    char[] lessMsg = new char[messages.length - 1];
+    int index = messages.length - 1;
+    System.arraycopy(messages, 0, lessMsg, 0, index);
+    System.arraycopy(messages, index + 1, lessMsg, index, messages.length - index - 1);
+    messages = lessMsg;
+    arrayCounter.decrementAndGet();
   }
-
-  /**
-   * Recursive method to put a thread in a waiting state if the queue is full.
-   * TODO: here is the problem
-   * @param semaphore is the shared semaphore.
-   */
-  private void checkIfQueueIsFull (Semaphore semaphore) throws InterruptedException {
-    while (arrayCounter.get() == 5) {
-      checkIfQueueIsFull(semaphore);
-    }
-  }
-
 }
