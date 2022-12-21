@@ -11,7 +11,7 @@ public abstract class SuperSender {
       semaphore.acquire();
       if (messageQueue.getArrayCounter().get() < 5) {
         try {
-          messageQueue.addMsgToQueue(send(sender), semaphore);
+          messageQueue.addMsgToQueue(send(sender));
         } catch (InterruptedException e) {
           throw new RuntimeException(e);
         }

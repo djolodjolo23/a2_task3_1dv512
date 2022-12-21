@@ -67,9 +67,8 @@ public class MessageQueue implements IMessageQueue, Runnable{
    * If queue is full, tells the sender to wait with semaphore.wait();
    *
    * @param msg the message to be sent.
-   * @param semaphore is the shared semaphore.
    */
-  public void addMsgToQueue(char msg, Semaphore semaphore) throws InterruptedException {
+  public void addMsgToQueue(char msg) throws InterruptedException {
     char[]moreMsg = new char[messages.length + 1];
     System.arraycopy(messages, 0, moreMsg, 0, messages.length);
     for (int i = 1; i < moreMsg.length; i ++) {
