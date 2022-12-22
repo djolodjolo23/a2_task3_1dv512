@@ -8,8 +8,6 @@ public class SenderA extends SuperSender implements Runnable{
   private final Semaphore semaphore;
 
 
-  private final char whoAmI = 'A';
-
   private final MessageQueue messageQueue;
 
   public SenderA(Semaphore semaphore, MessageQueue messageQueue) {
@@ -21,6 +19,7 @@ public class SenderA extends SuperSender implements Runnable{
   public void run() {
       synchronized (semaphore) {
         try {
+          char whoAmI = 'A';
           super.run(semaphore, messageQueue, whoAmI);
         } catch (InterruptedException e) {
           throw new RuntimeException(e);
