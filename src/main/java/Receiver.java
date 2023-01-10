@@ -27,11 +27,6 @@ public class Receiver implements Runnable {
         System.out.print(theMessage);
         semaphore.release();
         semaphore.notify();
-        try {
-          Thread.sleep(1000);
-        } catch (InterruptedException e) {
-          throw new RuntimeException(e);
-        }
       }
     }
   }
