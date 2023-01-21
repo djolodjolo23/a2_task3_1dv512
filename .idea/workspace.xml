@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf76562-838c-42c4-8553-8a61c539967f" name="Changes" comment="some tiny code update." />
+    <list default="true" id="fcf76562-838c-42c4-8553-8a61c539967f" name="Changes" comment="Thread sleep removed.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MessageQueue.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,6 +72,8 @@
       <workItem from="1671553240668" duration="1404000" />
       <workItem from="1671617414418" duration="5477000" />
       <workItem from="1671717048347" duration="1574000" />
+      <workItem from="1673357691107" duration="439000" />
+      <workItem from="1674307078235" duration="1226000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1671122266356</created>
@@ -140,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671717916870</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Thread sleep removed.">
+      <created>1673357924558</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1673357924558</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -170,15 +182,21 @@
     <MESSAGE value="Cleaning up the unused code." />
     <MESSAGE value="code cleanup." />
     <MESSAGE value="some tiny code update." />
-    <option name="LAST_COMMIT_MESSAGE" value="some tiny code update." />
+    <MESSAGE value="Thread sleep removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Thread sleep removed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Receiver.java</url>
-          <line>26</line>
+          <url>file://$PROJECT_DIR$/src/main/java/MessageQueue.java</url>
+          <line>34</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/MessageQueue.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

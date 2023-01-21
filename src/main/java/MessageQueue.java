@@ -32,7 +32,7 @@ public class MessageQueue implements IMessageQueue, Runnable{
       while (true) {
         semaphore.acquireUninterruptibly();
         // in case the array is empty, the message queue waits for the first message to arrive.
-        if (arrayCounter.get() != 0) {
+        if (arrayCounter.get() > 0) {
           send(messages[messages.length - 1]);
           semaphore.release();
           // the receiver gets notified and prints ONLY if the message is sent.
@@ -69,28 +69,31 @@ public class MessageQueue implements IMessageQueue, Runnable{
    * @param msg the message to be sent.
    */
   public void addMsgToQueue(char msg) throws InterruptedException {
-    char[]moreMsg = new char[messages.length + 1];
-    System.arraycopy(messages, 0, moreMsg, 0, messages.length);
-    for (int i = 1; i < moreMsg.length; i ++) {
-      moreMsg[moreMsg.length - i] = moreMsg[moreMsg.length - (i+1)];
+    if (arrayCounter.get() < 5) {
+      char[] moreMsg = new char[messages.length + 1];
+      System.arraycopy(messages, 0, moreMsg, 0, messages.length);
+      for (int i = 1; i < moreMsg.length; i++) {
+        moreMsg[moreMsg.length - i] = moreMsg[moreMsg.length - (i + 1)];
+      }
+      moreMsg[0] = msg;
+      arrayCounter.incrementAndGet();
+      messages = moreMsg;
     }
-    moreMsg[0] = msg;
-    arrayCounter.incrementAndGet();
-    messages = moreMsg;
   }
 
 
 
   /**
    * removes a first message arrived from the queue.
-   * Also calls send() so that message is sent before being removed.
    */
   private void removeMsgFromQueue() {
-    char[] lessMsg = new char[messages.length - 1];
-    int index = messages.length - 1;
-    System.arraycopy(messages, 0, lessMsg, 0, index);
-    System.arraycopy(messages, index + 1, lessMsg, index, messages.length - index - 1);
-    messages = lessMsg;
-    arrayCounter.decrementAndGet();
+    if (arrayCounter.get() > 0) {
+      char[] lessMsg = new char[messages.length - 1];
+      int index = messages.length - 1;
+      System.arraycopy(messages, 0, lessMsg, 0, index);
+      System.arraycopy(messages, index + 1, lessMsg, index, messages.length - index - 1);
+      messages = lessMsg;
+      arrayCounter.decrementAndGet();
+    }
   }
 }
