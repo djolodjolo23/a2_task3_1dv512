@@ -4,19 +4,15 @@ import java.util.concurrent.Semaphore;
 public class Main {
 
 
-  public static void main(String[] args) throws InterruptedException {
+  public static void main(String[] args) {
 
-    Semaphore senderSemaphore = new Semaphore(1, true);
-    Semaphore queueAndReceiverSemaphore = new Semaphore(1);
+    IMessageQueue queue = new MessageQueue();
 
-    var receiver = new Receiver(queueAndReceiverSemaphore);
-    var messageQueue = new MessageQueue(receiver, queueAndReceiverSemaphore);
+    SenderA senderA = new SenderA(queue);
+    SenderB senderB = new SenderB(queue);
+    SenderC senderC = new SenderC(queue);
+    Receiver receiver = new Receiver(queue);
 
-    var senderA = new SenderA(senderSemaphore, messageQueue);
-    var senderB = new SenderB(senderSemaphore, messageQueue);
-    var senderC = new SenderC(senderSemaphore, messageQueue);
-
-    var tq = new Thread(messageQueue);
     var ta = new Thread(senderA);
     var tb = new Thread(senderB);
     var tc = new Thread(senderC);
@@ -27,14 +23,6 @@ public class Main {
     tb.start();
     tc.start();
     tr.start();
-    tq.start();
-
-    ta.join();
-    tb.join();
-    tc.join();
-    tr.join();
-    tq.join();
-
 
   }
 }

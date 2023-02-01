@@ -1,29 +1,19 @@
-import java.util.concurrent.Semaphore;
+public class SenderC implements Runnable{
 
-/**
- * The sender C class.
- */
-public class SenderC extends SuperSender implements Runnable{
+  private final IMessageQueue queue;
 
-  private final Semaphore semaphore;
-
-  private final MessageQueue messageQueue;
-
-  public SenderC(Semaphore semaphore, MessageQueue messageQueue) {
-    this.semaphore = semaphore;
-    this.messageQueue = messageQueue;
+  public SenderC(IMessageQueue queue) {
+    this.queue = queue;
   }
 
   @Override
   public void run() {
-      synchronized (semaphore) {
-        try {
-          char whoAmI = 'C';
-          super.run(semaphore, messageQueue, whoAmI);
-        } catch (InterruptedException e) {
-          throw new RuntimeException(e);
-        }
+    while (true) {
+      try {
+        queue.send('C');
+      } catch (InterruptedException e) {
+        throw new RuntimeException(e);
       }
-
+    }
   }
 }

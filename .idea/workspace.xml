@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fcf76562-838c-42c4-8553-8a61c539967f" name="Changes" comment="Thread sleep removed.">
+    <list default="true" id="fcf76562-838c-42c4-8553-8a61c539967f" name="Changes" comment="Added the atomic counter for adding and removing a message from the queues, so the crashing is avoided.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IMessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IMessageQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MessageQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MessageQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Receiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SenderA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SenderA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SenderB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SenderB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SenderC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SenderC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/SuperSender.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +49,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/a2_task3_1dv512&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/dimit/OneDrive/Documents/lnu courses/1DV512/ahmad_1dv512-v2/ahmad/a2_task3&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -73,7 +80,10 @@
       <workItem from="1671617414418" duration="5477000" />
       <workItem from="1671717048347" duration="1574000" />
       <workItem from="1673357691107" duration="439000" />
-      <workItem from="1674307078235" duration="1226000" />
+      <workItem from="1674307078235" duration="1338000" />
+      <workItem from="1674385532764" duration="3771000" />
+      <workItem from="1675085150328" duration="204000" />
+      <workItem from="1675263901634" duration="1679000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit.">
       <created>1671122266356</created>
@@ -152,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673357924558</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added the atomic counter for adding and removing a message from the queues, so the crashing is avoided.">
+      <created>1674308408759</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1674308408759</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,23 +200,8 @@
     <MESSAGE value="code cleanup." />
     <MESSAGE value="some tiny code update." />
     <MESSAGE value="Thread sleep removed." />
-    <option name="LAST_COMMIT_MESSAGE" value="Thread sleep removed." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MessageQueue.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/MessageQueue.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Added the atomic counter for adding and removing a message from the queues, so the crashing is avoided." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the atomic counter for adding and removing a message from the queues, so the crashing is avoided." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/a2_task3_1dv512$Main.ic" NAME="Main Coverage Results" MODIFIED="1671486601339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
